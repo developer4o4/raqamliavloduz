@@ -159,7 +159,8 @@ if DEBUG:
 else:
     CORS_ALLOWED_ORIGINS = [
         "https://raqamliavlod.uz",
-        "https://raqamliavlod.abdulkhafizov.uz"
+        "https://raqamliavlod.abdulkhafizov.uz",
+        "https://raqamliavlodbk.adxamov.uz"
     ]
 
 if not DEBUG:
@@ -187,6 +188,8 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 8
 }
+
+CSRF_TRUSTED_ORIGINS = ["https://raqamliavlodbk.adxamov.uz"]
 
 SIMPLE_JWT = {
     'USER_ID_FIELD': 'guid',
