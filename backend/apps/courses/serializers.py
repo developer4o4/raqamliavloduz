@@ -31,7 +31,7 @@ class UserCourseRelationSerializer(ModelSerializer):
 class LessonSerializer(serializers.ModelSerializer):
     class Meta:
         model = LessonModel
-        fields = ['id', 'source', 'description']
+        fields = ['guid', 'source', 'description']
 
 class CourseDetailSerializer(serializers.ModelSerializer):
     lessons = LessonSerializer(source='course_lessons', many=True, read_only=True)
@@ -40,7 +40,7 @@ class CourseDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = CourseModel
         fields = [
-            'id',
+            'guid',
             'thumbnail',
             'title',
             'slug',
