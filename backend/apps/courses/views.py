@@ -1,8 +1,8 @@
-from rest_framework.generics import ListAPIView, CreateAPIView, ListCreateAPIView
+from rest_framework.generics import ListAPIView, CreateAPIView, ListCreateAPIView, RetrieveAPIView
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .models import CourseModel, UserCourseRelationModel
-from .serializers import NewCoursesSerializer, RecommendedCoursesSerializer, UserCourseRelationSerializer
+from .serializers import NewCoursesSerializer, RecommendedCoursesSerializer, UserCourseRelationSerializer, CourseDetailSerializer
 
 
 
@@ -27,3 +27,8 @@ class UserCourseRelationApiView(ListCreateAPIView):
         user_guid = self.kwargs['guid']
         return UserCourseRelationModel.objects.filter(user__guid=user_guid)
 
+
+class CourseDetailApiView(RetrieveAPIView):
+    serializer_class = CourseDetailSerializer
+    queryset = CourseModel.objects.prefetch_related('course_lessons')
+    lookup_field = 'slug'

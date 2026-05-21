@@ -25,16 +25,16 @@ services:
     depends_on:
       - postgres
 
-  frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
-      args:
-        VITE_BACKEND_URL: http://localhost:15003
-    environment:
-      VITE_BACKEND_URL: http://localhost:15003
-    ports:
-      - "15002:3000"
+  # frontend:
+  #   build:
+  #     context: ./frontend
+  #     dockerfile: Dockerfile
+  #     args:
+  #       VITE_BACKEND_URL: http://localhost:15003
+  #   environment:
+  #     VITE_BACKEND_URL: http://localhost:15003
+  #   ports:
+  #     - "15002:3000"
 
   postgres:
     image: postgres:16-alpine
