@@ -19,7 +19,7 @@ DEBUG = os.environ.get('DJANGO_DEBUG', 'false').lower() in ['y', 't', 'yes', 'tr
 if DEBUG:
     ALLOWED_HOSTS = ['*']
 else:
-    ALLOWED_HOSTS = ['bk.raqamliavlod.uz', 'api-raqamliavlod.abdulkhafizov.uz']
+    ALLOWED_HOSTS = ['bk.raqamliavlod.uz', 'api-raqamliavlod.abdulkhafizov.uz',"raqamliavlodbk.adxamov.uz"]
 
 # Application definition
 
@@ -160,7 +160,9 @@ else:
     CORS_ALLOWED_ORIGINS = [
         "https://raqamliavlod.uz",
         "https://raqamliavlod.abdulkhafizov.uz",
-        "https://raqamliavlodbk.adxamov.uz"
+        "https://raqamliavlodbk.adxamov.uz",
+        "http://localhost:3000",
+
     ]
 
 if not DEBUG:
