@@ -21,7 +21,7 @@ class CourseModel(BaseModel):
 
 class LessonModel(BaseModel):
     course = models.ForeignKey(CourseModel, on_delete=models.CASCADE, related_name='course_lessons')
-    source = models.CharField("YouTube embeded link", max_length=64, unique=True)
+    source = models.CharField("YouTube embeded link", max_length=500, unique=True)
     description = models.TextField("Darslik haqida", max_length=16000, null=True, blank=True)
 
     class Meta:
